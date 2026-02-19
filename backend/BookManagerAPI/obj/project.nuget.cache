@@ -1,0 +1,12 @@
+{
+  "version": 2,
+  "dgSpecHash": "a1bsaXHfgwE=",
+  "success": true,
+  "projectFilePath": "C:\\Users\\MSI\\Desktop\\New folder\\backend\\BookManagerAPI\\BookManagerAPI.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\MSI\\.nuget\\packages\\microsoft.aspnetcore.openapi\\10.0.3\\microsoft.aspnetcore.openapi.10.0.3.nupkg.sha512",
+    "C:\\Users\\MSI\\.nuget\\packages\\microsoft.openapi\\2.0.0\\microsoft.openapi.2.0.0.nupkg.sha512",
+    "C:\\Users\\MSI\\.nuget\\packages\\scalar.aspnetcore\\2.12.44\\scalar.aspnetcore.2.12.44.nupkg.sha512"
+  ],
+  "logs": []
+}
