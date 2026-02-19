@@ -4,7 +4,7 @@
   <div style="border: 1px solid #ccc; padding: 20px 30px; border-radius: 5px; margin-bottom: 20px">
     <h2>{{ isEditing ? 'Edit Book' : 'Add New Book' }}</h2>
 
-    <form (ngSubmit)="onSubmit()" #bookForm="ngForm">
+    <form (ngSubmit)="onSubmit(bookForm)" #bookForm="ngForm">
       <div style="margin-bottom: 10px">
         <label style="display: block">Title:</label>
         <input

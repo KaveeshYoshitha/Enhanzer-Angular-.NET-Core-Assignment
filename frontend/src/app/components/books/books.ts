@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, NgForm } from '@angular/forms';
 import { Book } from '../../models/book.model';
 import { BookService } from '../../services/book';
 import Swal from 'sweetalert2';
@@ -35,7 +35,7 @@ export class Books implements OnInit {
     }
   }
 
-  async onSubmit(): Promise<void> {
+  async onSubmit(form: NgForm): Promise<void> {
     if (
       !this.currentBook.title.trim() ||
       !this.currentBook.author.trim() ||
@@ -53,7 +53,7 @@ export class Books implements OnInit {
           Swal.fire('Success!', 'The book has been updated.', 'success');
         } catch (err) {
           Swal.fire('Error!', 'There was an error updating the book.', 'error');
-          this.resetForm();
+          this.resetForm(form);
           return;
         }
       } else {
@@ -62,12 +62,13 @@ export class Books implements OnInit {
           Swal.fire('Success!', 'The book has been added.', 'success');
         } catch (err) {
           Swal.fire('Error!', 'There was an error adding the book.', 'error');
-          this.resetForm();
+          this.resetForm(form);
           return;
         }
       }
+      console.log('Clicked');
       await this.loadBooks();
-      this.resetForm();
+      this.resetForm(form);
     } catch (err) {
       console.error('Error saving book', err);
     }
@@ -102,8 +103,11 @@ export class Books implements OnInit {
     });
   }
 
-  resetForm(): void {
+  resetForm(form?: NgForm): void {
     this.currentBook = { title: '', author: '', isbn: '', publicationDate: '' };
     this.isEditing = false;
+    form?.resetForm(this.currentBook);
+
+    this.cdr.detectChanges();
   }
 }
